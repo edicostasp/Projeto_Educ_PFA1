@@ -1,0 +1,8 @@
+FROM mysql:5.5
+
+COPY setup.sql /docker-entrypoint-initdb.d/
+
+ENV MYSQL_DATABASE=fullcycle_desafio1 \
+    MYSQL_ROOT_PASSWORD=root
+
+CMD ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_general_ci", "--skip-character-set-client-handshake"]
